@@ -1,6 +1,7 @@
 # Big 5 성격 검사 모놀리식 애플리케이션
 
-<img width="734" alt="image" src="https://github.com/user-attachments/assets/15e46ff4-fb61-4c57-9d85-e565faea0125">
+<img width="719" alt="image" src="https://github.com/user-attachments/assets/20366714-fceb-4a18-bf2a-1ff7bc55f345">
+
 
 ## 애플리케이션 동작 전제 조건
 ### JDK 21 설치
@@ -14,11 +15,13 @@ https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html
 
 https://console.upstage.ai/
 
-![image](https://github.com/user-attachments/assets/803f517a-0818-4bbf-a5eb-75c49903fc6c)
+![image](https://github.com/user-attachments/assets/6da046a1-6823-40ad-8b8a-b0522dc1b5ae)
+
 
 2 좌측 메뉴 > API Key/ Example로 이동 후 'Create API Key' 버튼 클릭
 
-![image](https://github.com/user-attachments/assets/b1b10940-4670-466f-a2d2-9f4589984ed8)
+![image](https://github.com/user-attachments/assets/ca392b45-5b8a-4221-91ec-4abfc9b9deac)
+
 
 ## 애플리케이션 실행
 ### 환경 변수 선언
