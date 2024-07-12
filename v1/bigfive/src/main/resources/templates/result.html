@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>index.html</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+</head>
+<body>
+<div class="center">
+    <h1>검사 결과</h1>
+    <div id="main" style="width: 600px;height:400px; padding-left: 100px"></div>
+    <p th:text="${evaluation.commentary}" />
+</div>
+
+<script type="text/javascript">
+    const myChart = echarts.init(document.getElementById('main'));
+    const option = {
+        radar: {
+          indicator: [
+            {name: '외향성', max: 4},
+            {name: '신경성', max: 4},
+            {name: '성실성', max: 4},
+            {name: '친화성', max: 4},
+            {name: '개방성', max: 4},
+          ]
+        },
+        series: [
+          {
+            type: 'radar',
+            data: [
+                {
+                    value: [ [[${evaluation.extraversionValue}]], [[${evaluation.neuroticismValue}]], 
+                             [[${evaluation.conscientiousnessValue}]], [[${evaluation.agreeablenessValue}]], [[${evaluation.opennessValue}]] ]
+                }
+            ]
+          }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+# Big 5 성격 검사 모놀리식 애플리케이션
+
+<img width="734" alt="image" src="https://github.com/user-attachments/assets/15e46ff4-fb61-4c57-9d85-e565faea0125">
+
+## 애플리케이션 동작 전제 조건
+### JDK 21 설치
+아래 링크에서 컴퓨터 플랫폼에 맞는 버전을 내려받아 설치
+
+https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html
+
+### Solar LLM API 키 발급
+
+1 회원 가입
+
+https://console.upstage.ai/
+
+![image](https://github.com/user-attachments/assets/803f517a-0818-4bbf-a5eb-75c49903fc6c)
+
+2 좌측 메뉴 > API Key/ Example로 이동 후 'Create API Key' 버튼 클릭
+
+![image](https://github.com/user-attachments/assets/b1b10940-4670-466f-a2d2-9f4589984ed8)
+
+## 애플리케이션 실행
+### 환경 변수 선언
+```shell
+export SOLAR_API_KEY=...
+# or 
+set SOLAR_API_KEY=...
+```
+### 실행 명령어
+```shell
+./mvnw spring-boot:run 
+```

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>index.html</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+<h1 style="margin: 20px">성격 진단표</h1>
+<form th:action="@{/tests}"  th:object="${linePoints}" method="post" >
+    <fieldset>
+        <legend>1. 모르는 사람에게 먼저 말은 건다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint1" value="1" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint1" value="2" />
+                <label>2</label>
+                <input type="radio" name="linePoint1" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint1" value="4" />
+                <label>4</label>
+                <input type="radio" name="linePoint1" value="5" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>2. 다른 사람이 편안하고 행복한지 확인한다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint2" value="1" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint2" value="2" />
+                <label>2</label>
+                <input type="radio" name="linePoint2" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint2" value="4" />
+                <label>4</label>
+                <input type="radio" name="linePoint2" value="5" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>3. 그림, 글, 음악을 창작한다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint3" value="1" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint3" value="2" />
+                <label>2</label>
+                <input type="radio" name="linePoint3" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint3" value="4" />
+                <label>4</label>
+                <input type="radio" name="linePoint3" value="5" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>4. 모든 일을 사전에 준비한다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint4" value="1" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint4" value="2" />
+                <label>2</label>
+                <input type="radio" name="linePoint4" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint4" value="4" />
+                <label>4</label>
+                <input type="radio" name="linePoint4" value="5" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>5. 울적하거나 우울함을 느낀다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint5" value="1" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint5" value="2" />
+                <label>2</label>
+                <input type="radio" name="linePoint5" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint5" value="4" />
+                <label>4</label>
+                <input type="radio" name="linePoint5" value="5" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>6. 회식, 파티, 사교모임을 계획한다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint6" value="1" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint6" value="2" />
+                <label>2</label>
+                <input type="radio" name="linePoint6" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint6" value="4" />
+                <label>4</label>
+                <input type="radio" name="linePoint6" value="5" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>7. 사람들을 모욕한다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint7" value="5" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint7" value="4" />
+                <label>2</label>
+                <input type="radio" name="linePoint7" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint7" value="2" />
+                <label>4</label>
+                <input type="radio" name="linePoint7" value="1" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>8. 철학적이거나 영적인 문제들을 생각한다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint8" value="1" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint8" value="2" />
+                <label>2</label>
+                <input type="radio" name="linePoint8" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint8" value="4" />
+                <label>4</label>
+                <input type="radio" name="linePoint8" value="5" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>9. 일이나 물건을 정리하지 않고 어지럽게 그냥 둔다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint9" value="5" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint9" value="4" />
+                <label>2</label>
+                <input type="radio" name="linePoint9" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint9" value="2" />
+                <label>4</label>
+                <input type="radio" name="linePoint9" value="1" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>10. 스트레스나 걱정을 느낀다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint10" value="1" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint10" value="2" />
+                <label>2</label>
+                <input type="radio" name="linePoint10" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint10" value="4" />
+                <label>4</label>
+                <input type="radio" name="linePoint10" value="5" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>11. 어려운 단어를 사용한다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint11" value="1" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint11" value="2" />
+                <label>2</label>
+                <input type="radio" name="linePoint11" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint11" value="4" />
+                <label>4</label>
+                <input type="radio" name="linePoint11" value="5" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>12. 타인의 감정에 공감한다</legend>        
+        <div class="drone-options">
+            <label>전혀 아니다</label>
+            <div style="margin-left: 30px;margin-right:30px;">
+                <input type="radio" name="linePoint12" value="1" required/>
+                <label>1</label>
+                <input type="radio" name="linePoint12" value="2" />
+                <label>2</label>
+                <input type="radio" name="linePoint12" value="3" />
+                <label>3</label>
+                <input type="radio" name="linePoint12" value="4" />
+                <label>4</label>
+                <input type="radio" name="linePoint12" value="5" />
+                <label>5</label>
+            </div>        
+            <label>매우 그렇다</label>
+        </div>
+    </fieldset>
+
+    <div style="margin: 20px">
+        <button type="submit">제출</button>
+    </div>
+</form>
+</body>
+</html>
