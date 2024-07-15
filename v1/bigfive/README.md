@@ -34,3 +34,10 @@ set SOLAR_API_KEY=...
 ```shell
 ./mvnw spring-boot:run 
 ```
+## 계층형 아키텍처(Layered Architecture)
+
+![image](https://github.com/user-attachments/assets/cd6ffa6d-3b7b-4713-a614-cbf565988b28)
+
+![image](https://github.com/user-attachments/assets/af1229cd-cef5-43f8-892b-af6772cf5e05)
+
+
