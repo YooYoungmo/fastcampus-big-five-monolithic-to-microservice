@@ -64,7 +64,7 @@ npx create-next-app@latest
 npm run dev
 ```
 
-4. Ant Design 설치
+4. Ant Design 라이브러리 설치
 
 https://ant.design/docs/react/use-with-next
 
