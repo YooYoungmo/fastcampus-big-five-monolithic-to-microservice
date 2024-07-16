@@ -46,6 +46,9 @@ public class TestRestController {
 <img width="1304" alt="image" src="https://github.com/user-attachments/assets/22914472-9134-4733-a885-354fec1b1854">
 
 ## Next.js 기반의 프론트엔드 서비스 개발
+
+### 프로젝트 준비
+
 1. [Node.js](https://nodejs.org/en/) 설치
 2. Next.js 프로젝트 생성
 
@@ -69,7 +72,9 @@ https://ant.design/docs/react/use-with-next
 npm install antd --save
 ```
 
-5. LineItem.tsx 컴포넌트 작성
+### 성격 진단표 화면 개발
+
+1. LineItem.tsx 컴포넌트 작성
 
 ```tsx
 import {Form, Radio, Space, Typography} from "antd";
@@ -114,7 +119,7 @@ export function LineItem({name, label, reversePoint}: { name: string, label: str
 export default LineItem;
 ```
 
-6. PersonalityTestForm.tsx 작성
+2. PersonalityTestForm.tsx 작성
 ```tsx
 import { Button, Divider, Form, Typography } from "antd";
 import { useForm } from "antd/es/form/Form";
@@ -159,7 +164,7 @@ export default function PersonalityTestForm({onFinish}: { onFinish: (values: any
   }
 ```
 
-7. page.tsx 에서 PersonalityTestForm 사용
+3. page.tsx 에서 PersonalityTestForm 사용
 ```tsx
 'use client';
 import PersonalityTestForm from "@/components/PersonalityTestForm";
@@ -178,7 +183,7 @@ export default function Home() {
 }
 ```
 
-8. Backend REST API 호출
+4. Backend REST API 호출
 
 page.tsx  변경
 
@@ -226,8 +231,7 @@ NEXT_PUBLIC_API_ENDPOINT=http://localhost:8080/api
 ![image](https://github.com/user-attachments/assets/084ece73-2064-469a-99cd-f2eb67683345)
 
 
-9. CORS(Cross-Origin Resource Sharing) 문제 해결
-https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+5. [CORS(Cross-Origin Resource Sharing)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) 문제 해결
 
 Backend에 WebConfig.java 작성
 ```java
@@ -248,7 +252,187 @@ public class WebConfig implements WebMvcConfigurer {
   }
 }
 ```
-10. 로딩 화면 추가
-```tsx
 
+### 성격 검사 결과 화면 개발
+1. echarts 라이브러리 설치
+```shell
+npm install echarts --save
+```
+
+2. PersonalityTestReport.tsx 작성
+```tsx
+import {useEffect, useRef, useState} from "react";
+import * as echarts from "echarts";
+import {Button, Card, Divider, Space, Typography} from "antd";
+import {ReloadOutlined, UserAddOutlined} from "@ant-design/icons";
+import { IEvaluation } from "@/app/page";
+
+const {Title} = Typography;
+
+export default function PersonalityTestReport({evaluations, onAddPerson}: {
+  evaluations?: IEvaluation[] | null,
+  onAddPerson: () => void
+}) {
+  const chartRef = useRef(null);
+  const [options, setOptions] = useState({
+    radar: {
+      indicator: [
+        {name: '외향성', max: 4},
+        {name: '신경성', max: 4},
+        {name: '성실성', max: 4},
+        {name: '친화성', max: 4},
+        {name: '개방성', max: 4},
+      ]
+    },
+    series: [
+      {
+        type: 'radar',
+        data: []
+      }
+    ],
+    toolbox: {
+      right: "10%",
+      feature: {
+        saveAsImage: {
+          title: "이미지로 저장하기",
+          name: "Big Five personality traits"
+        }
+      }
+    }
+  });
+
+  useEffect(() => {
+    if (chartRef.current) {
+      const chart = echarts.init(chartRef.current);
+      chart.setOption(options);
+    }
+  }, [chartRef, options]);
+
+  useEffect(() => {
+    if (chartRef.current && evaluations && evaluations.length > 0) {
+      const seriesData = evaluations.map((evaluation, index) => {
+        return {
+          value: [evaluation.extraversionValue, evaluation.neuroticismValue, evaluation.conscientiousnessValue, evaluation.agreeablenessValue, evaluation.opennessValue],
+          name: `${index + 1} 번째`,
+        }
+      });
+      setOptions({
+        ...options,
+        legend: {
+          data: seriesData.map((data, idx) => `${idx + 1} 번째`),
+        },
+        series: [
+          {
+            type: 'radar',
+            //@ts-ignore
+            data: seriesData
+          }
+        ]
+      })
+    }
+  }, [evaluations]);
+
+  return (
+    <div>
+      <Title level={1} className="flex flex-col items-center justify-between p-10">진단 결과</Title>
+      <Divider/>
+      <div className="flex flex-col items-center justify-between">
+        <Space>
+          <Button type="primary" icon={<ReloadOutlined/>} onClick={() => window.location.reload()}>
+            처음부터 다시하기
+          </Button>
+          <Button icon={<UserAddOutlined/>} onClick={onAddPerson}>
+            다른 사람 추가하기
+          </Button>
+        </Space>
+        <div
+          ref={chartRef}
+          style={{
+            marginTop: "30px",
+            width: "100%",
+            height: "450px",
+          }}
+        />
+      </div>
+      <section className="w-full max-w-lg mx-auto flex flex-col items-center px-4 py-20">
+        <Card>
+          <div className="whitespace-pre-wrap">
+            {
+              evaluations && evaluations.length > 0 && evaluations[evaluations?.length - 1].commentary
+            }
+          </div>
+        </Card>
+      </section>
+
+    </div>
+  )
+}
+```
+
+3. page.tsx 변경
+
+```tsx
+'use client';
+
+import PersonalityTestForm from "@/components/PersonalityTestForm";
+import PersonalityTestReport from "@/components/PersonalityTestReport";
+import { Button, Spin } from "antd";
+import { useState } from "react";
+
+export default function Home() {
+  const [loading, setLoading] = useState(false);
+  const [evaluated, setEvaluated] = useState(false);
+  const [evaluations, setEvaluations] = useState<IEvaluation[]>([]);
+
+  const handleFinish = async (values: any) => {
+    const linePoints: any = {}
+    for (const property in values) {
+      linePoints[property] = Number(values[property]);
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/tests`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(linePoints),
+      })
+
+      const evaluation = await res.json()
+      setEvaluations(evaluations.concat([evaluation]));
+      setEvaluated(true);
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const handleAddPerson = () => {
+    setEvaluated(false);
+  }
+
+  return (
+    <>
+      {!evaluated ? <PersonalityTestForm onFinish={handleFinish}/>
+        : <PersonalityTestReport evaluations={evaluations} onAddPerson={handleAddPerson}/>}
+      <Spin spinning={loading} fullscreen />
+    </>
+  );
+}
+
+export interface IEvaluation {
+  extraversionValue: number;
+  neuroticismValue: number;
+  conscientiousnessValue: number;
+  agreeablenessValue: number;
+  opennessValue: number;
+  commentary: string;
+}
 ```
