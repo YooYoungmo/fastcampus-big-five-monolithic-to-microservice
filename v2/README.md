@@ -253,7 +253,7 @@ public class WebConfig implements WebMvcConfigurer {
 }
 ```
 
-### 성격 검사 결과 화면 개발
+### 성격 검사 결과 화면 개발
 1. echarts 라이브러리 설치
 ```shell
 npm install echarts --save
