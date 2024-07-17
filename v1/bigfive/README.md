@@ -26,14 +26,23 @@ https://console.upstage.ai/
 ## 애플리케이션 실행
 ### 환경 변수 선언
 ```shell
+# mac
 export SOLAR_API_KEY=...
-# or 
+# or windows
 set SOLAR_API_KEY=...
 ```
 ### 실행 명령어
 ```shell
-./mvnw spring-boot:run 
+# mac
+./mvnw spring-boot:run
+# or windows 1
+mvnw spring-boot:run
+# or windows 2
+mvnw clean install
+cd target
+java -jar bigfive-0.0.1-SNAPSHOT.jar
 ```
+
 ## 계층형 아키텍처(Layered Architecture)
 
 ![image](https://github.com/user-attachments/assets/cd6ffa6d-3b7b-4713-a614-cbf565988b28)
