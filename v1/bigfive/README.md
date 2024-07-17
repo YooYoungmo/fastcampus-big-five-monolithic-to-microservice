@@ -37,7 +37,8 @@ set SOLAR_API_KEY=...
 ./mvnw spring-boot:run
 # or windows 1
 mvnw spring-boot:run
-# or windows 2
+
+# spring-boot:run 대체
 mvnw clean install
 cd target
 java -jar bigfive-0.0.1-SNAPSHOT.jar
