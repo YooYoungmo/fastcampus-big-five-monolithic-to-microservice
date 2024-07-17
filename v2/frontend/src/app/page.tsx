@@ -3,7 +3,6 @@
 import PersonalityTestForm from "@/components/PersonalityTestForm";
 import PersonalityTestReport from "@/components/PersonalityTestReport";
 import { Button, Spin } from "antd";
-import Image from "next/image";
 import { useState } from "react";
 
 
