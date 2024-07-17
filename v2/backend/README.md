@@ -29,6 +29,13 @@ set SOLAR_API_KEY=...
 ```
 ### 실행 명령어
 ```shell
-./mvnw spring-boot:run 
+# mac
+./mvnw spring-boot:run
+# or windows 1
+mvnw spring-boot:run
+# or windows 2
+mvnw clean install
+cd target
+java -jar bigfive-0.0.1-SNAPSHOT.jar
 ```
 
