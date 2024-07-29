@@ -46,6 +46,9 @@ java -jar bigfive-0.0.1-SNAPSHOT.jar
 
 ## 계층형 아키텍처(Layered Architecture)
 
+<img width="1753" alt="image" src="https://github.com/user-attachments/assets/e80785f8-16da-4d38-8078-2e9ae8bb0581">
+
+
 ![image](https://github.com/user-attachments/assets/cd6ffa6d-3b7b-4713-a614-cbf565988b28)
 
 ![image](https://github.com/user-attachments/assets/af1229cd-cef5-43f8-892b-af6772cf5e05)
