@@ -1,4 +1,4 @@
-# Big 5 성격 검사 모놀리식 애플리케이션 v3
+# Big 5 성격 검사 애플리케이션 v3
 
 <img width="863" alt="image" src="https://github.com/user-attachments/assets/10ed88a5-f5b0-4289-9034-bdfb6b66ccd1">
 
