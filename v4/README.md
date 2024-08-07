@@ -1,4 +1,4 @@
-# Big 5 성격 검사 모놀리식 애플리케이션 v4
+# Big 5 성격 검사 애플리케이션 v4
 <img width="1372" alt="image" src="https://github.com/user-attachments/assets/c10aaa5b-91bc-43cf-8f00-a53c2f58fc57">
 
 ## Go 초경량 마이크로서비스 만들기
