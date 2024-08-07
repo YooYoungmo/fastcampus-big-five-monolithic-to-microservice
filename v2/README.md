@@ -201,7 +201,7 @@ export default function Home() {
     }
 
     // API 호출
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/tests`, {
+    const res = await fetch("http://localhost:8080/api/tests", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -220,10 +220,6 @@ export default function Home() {
     </>
   );
 }
-```
-.env 파일 생성 및 작성
-```
-NEXT_PUBLIC_API_ENDPOINT=http://localhost:8080/api
 ```
 
 ![image](https://github.com/user-attachments/assets/a7aab594-f651-422d-a51a-37760c62b548)
@@ -393,7 +389,7 @@ export default function Home() {
     setLoading(true);
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/tests`, {
+      const res = await fetch("http://localhost:8080/api/tests", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
