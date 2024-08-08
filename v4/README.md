@@ -53,5 +53,7 @@ docker build --tag evaluation-service:0.2 .
 3. 결과물 확인
 <img width="1433" alt="image" src="https://github.com/user-attachments/assets/b46dfdb8-2427-49b2-ae91-ef463270ed6f">
 
-<img width="1381" alt="image" src="https://github.com/user-attachments/assets/640a88d8-648f-41fe-bf29-5e20e84185be">
+## Java와 Go 애플리케이션 도커 이미지 비교
+
+<img width="1461" alt="image" src="https://github.com/user-attachments/assets/f5dbae09-d9ae-42c2-8fe5-fc8bcebf6e57">
 
