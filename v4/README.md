@@ -53,3 +53,5 @@ docker build --tag evaluation-service:0.2 .
 3. 결과물 확인
 <img width="1433" alt="image" src="https://github.com/user-attachments/assets/b46dfdb8-2427-49b2-ae91-ef463270ed6f">
 
+<img width="1381" alt="image" src="https://github.com/user-attachments/assets/640a88d8-648f-41fe-bf29-5e20e84185be">
+
